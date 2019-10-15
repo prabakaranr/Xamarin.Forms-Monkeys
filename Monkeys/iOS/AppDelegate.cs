@@ -13,7 +13,8 @@ namespace Monkeys.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-
+            Syncfusion.XForms.iOS.Shimmer.SfShimmerRenderer.Init();
+            Syncfusion.XForms.iOS.Core.SfAvatarViewRenderer.Init();
             LoadApplication(new App());
             ImageCircle.Forms.Plugin.iOS.ImageCircleRenderer.Init();
 

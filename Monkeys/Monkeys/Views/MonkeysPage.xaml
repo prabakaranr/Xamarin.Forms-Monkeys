@@ -13,6 +13,12 @@
     Title="Monkeys"
     x:DataType="viewmodels:MonkeysViewModel"
     mc:Ignorable="d">
+
+    <ContentPage.Resources>
+        <converter:BoolInverseConverter x:Key="boolConverter"/>
+        <converter:ImageSourceToAvatarViewConverter x:Key="avatarViewConverter"/>
+    </ContentPage.Resources>
+
     <d:ContentPage.BindingContext>
         <viewmodels:MonkeysViewModel>
             <x:Arguments>
@@ -53,7 +59,7 @@
                     <DataTemplate x:DataType="models:Monkey">
                         <ViewCell>
                             <shimmer:SfShimmer  x:Name="shimmer" VerticalOptions="Fill"
-                           IsActive="{Binding IsLoaded, Converter={converter:BoolInverseConverter}}">
+                                IsActive="{Binding IsLoaded, Converter={StaticResource Key=boolConverter}}">
                                 <shimmer:SfShimmer.Content>
                                     <Grid
                                 Padding="10"
@@ -74,7 +80,7 @@
                                     VerticalOptions="CenterAndExpand"
                                     WidthRequest="66" />-->
 
-                                        <sfavatar:SfAvatarView ContentType="{Binding Image, Converter={converter:ImageSourceToAvatarViewConverter}}}"
+                                        <sfavatar:SfAvatarView ContentType="{Binding Image, Converter={StaticResource Key=avatarViewConverter}}"
                                                        ImageSource="{Binding Image}"
                                                        VerticalOptions="CenterAndExpand"
                                                        HorizontalOptions="CenterAndExpand"
