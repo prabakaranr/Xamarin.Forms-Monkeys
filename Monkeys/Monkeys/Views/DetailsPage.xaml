@@ -4,20 +4,33 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		x:Class="Monkeys.Views.DetailsPage"
 		xmlns:design="clr-namespace:Monkeys;assembly=Monkeys"
+        xmlns:converter ="clr-namespace:Monkeys.Converters"
+        xmlns:sfavatar="clr-namespace:Syncfusion.XForms.AvatarView;assembly=Syncfusion.Core.XForms"
         xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
         Title="{Binding Monkey.Name}">
     <ContentPage.Content>
 		<ScrollView>
     		<StackLayout Padding="10">
-                <controls:CircleImage 
+                <!--<controls:CircleImage 
                         BorderColor="Aqua"
                         BorderThickness="3"
                         HeightRequest="200"
                         WidthRequest="200"
                         HorizontalOptions="CenterAndExpand"
                         Aspect="AspectFill"
-                        Source="{Binding Monkey.Image}"/>
-				<Label Text="{Binding Monkey.Name}" FontAttributes="Bold"/>
+                        Source="{Binding Monkey.Image}"/>-->
+
+                <sfavatar:SfAvatarView ContentType="{Binding Image, Converter={converter:ImageSourceToAvatarViewConverter}}"
+                                                       ImageSource="{Binding Monkey.Image}"
+                                                       VerticalOptions="CenterAndExpand"
+                                                       HorizontalOptions="CenterAndExpand"
+                                                       HeightRequest="200"
+                                                       WidthRequest="200"
+                                                       CornerRadius="100"
+                                                       BorderWidth="2"
+                                                       BorderColor="Aqua"/>
+
+                <Label Text="{Binding Monkey.Name}" FontAttributes="Bold"/>
                 <Label Text="{Binding Monkey.Location}" FontSize="Micro"/>
                 <Label Text="{Binding Monkey.Details}" FontSize="Large"/>
     		</StackLayout>

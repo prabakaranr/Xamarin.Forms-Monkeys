@@ -28,8 +28,6 @@ namespace Monkeys.ViewModels
             }
         }
 
-        public bool IsBusy { get; set; }
-
         public int MonkeyCount => Monkeys?.Count ?? 0;
     }
 }
