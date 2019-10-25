@@ -58,45 +58,44 @@
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="models:Monkey">
                         <ViewCell>
-                            <shimmer:SfShimmer  x:Name="shimmer" VerticalOptions="Fill"
-                                IsActive="{Binding IsLoaded, Converter={StaticResource Key=boolConverter}}">
-                                <shimmer:SfShimmer.Content>
-                                    <Grid
-                                Padding="10"
-                                ColumnSpacing="10"
-                                RowSpacing="10">
+                               <shimmer:SfShimmer.CustomView>
+                                    <Grid VerticalOptions="Center"
+                                          HeightRequest="100"
+                                          HorizontalOptions="Start">
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="100" />
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
-                                        <!--<controls:CircleImage
-                                    Aspect="AspectFill"
-                                    BorderColor="Black"
-                                    BorderThickness="3"
-                                    HeightRequest="66"
-                                    HorizontalOptions="CenterAndExpand"
-                                    Source="{Binding Image}"
-                                    d:Source="icon.png"
-                                    VerticalOptions="CenterAndExpand"
-                                    WidthRequest="66" />-->
 
-                                        <sfavatar:SfAvatarView ContentType="{Binding Image, Converter={StaticResource Key=avatarViewConverter}}"
-                                                       ImageSource="{Binding Image}"
-                                                       VerticalOptions="CenterAndExpand"
-                                                       HorizontalOptions="CenterAndExpand"
-                                                       HeightRequest="66"
-                                                       WidthRequest="66"
-                                                       CornerRadius="33"
-                                                       BorderWidth="2"
-                                                       BorderColor="Black"/>
+ 
 
-                                        <StackLayout Grid.Column="1" VerticalOptions="Center">
-                                            <Label Text="{Binding Name}" />
-                                            <Label Text="{Binding Location}" />
+                                        <border:SfBorder HorizontalOptions="Center"
+                                                         VerticalOptions="Center"
+                                                         CornerRadius="30"
+                                                         HeightRequest="60"
+                                                         WidthRequest="60"
+                                                         BorderWidth="0"
+                                                         BackgroundColor="Gray" />
+
+ 
+
+                                        <StackLayout Grid.Column="1"
+                                                     Spacing="10"
+                                                     VerticalOptions="Center">
+                                            <border:SfBorder HeightRequest="20"
+                                                             WidthRequest="150"
+                                                             BorderWidth="0"
+                                                             BackgroundColor="Gray" />
+
+ 
+
+                                            <border:SfBorder HeightRequest="20"
+                                                             WidthRequest="200"
+                                                             BorderWidth="0"
+                                                             BackgroundColor="Gray" />
                                         </StackLayout>
                                     </Grid>
-                                </shimmer:SfShimmer.Content>
-                            </shimmer:SfShimmer>
+                               </shimmer:SfShimmer.CustomView>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
